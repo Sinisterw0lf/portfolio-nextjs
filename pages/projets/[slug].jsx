@@ -77,7 +77,7 @@ export default function Show({projet}) {
               </ul>
             </div>
             <div className="p2 mt-6">
-              <a href={urlDuProjet} target="blank" className=" bg-indigo-500 rounded-lg p-2 text-white">
+              <a href=`{urlDuProjet}` target="blank" className=" bg-indigo-500 rounded-lg p-2 text-white">
                 Voir le projet
               </a>
             </div>

@@ -22,9 +22,11 @@ export default function SectionProject({ projets }) {
         <div className="grid grid-cols-3 justify-items-center gap-10">
           {projets.map((projet) => (
             <Link href={`projets/${projet.fields.slug}`} key={projet.sys.id}>
-              <a>
-                <Card2  projet={projet} />
-              </a>
+              <>
+                <a>
+                  <Card2 projet={projet} />
+                </a>
+              </>
             </Link>
           ))}
         </div>

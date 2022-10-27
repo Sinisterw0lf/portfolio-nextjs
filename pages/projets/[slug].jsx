@@ -89,7 +89,7 @@ export default function Show({ projet }) {
             </div>
             <div className="p2 mt-6">
               <a
-                href="{urlDuProjet}"
+                href={urlDuProjet}
                 target="_blank"
                 className=" bg-indigo-500 rounded-lg p-2 text-white"
                 rel="noreferrer"

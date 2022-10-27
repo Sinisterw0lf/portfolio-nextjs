@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
 import Head from "next/head";
-import Footer from '../footer/Footer'
-import Navbar from '../navigation/Navbar'
+import Footer from "../footer/Footer";
+import Navbar from "../navigation/Navbar";
 
-export default function Layout({children, title, metaContent, image = "vercel.svg"}) {
+export default function Layout({
+  children,
+  title,
+  metaContent,
+  image = "vercel.svg",
+}) {
   return (
     <>
       <Head>
@@ -15,7 +20,9 @@ export default function Layout({children, title, metaContent, image = "vercel.sv
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <>
+          <main className="flex-grow">{children}</main>
+        </>
         <Footer />
       </div>
     </>

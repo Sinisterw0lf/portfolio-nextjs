@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
+import Link from "next/link";
 
 export default function SectionAbout() {
   return (
@@ -9,22 +10,22 @@ export default function SectionAbout() {
         <div className=" space-y-5">
           <h2 className="text-4xl font-bold">Qui suis-je ?</h2>
           <div className="flex gap-5">
-            <a className="" href="/">
+            <Link className="" href="/">
               <FontAwesomeIcon
                 className="fa-beat"
                 size="2x"
                 color="white"
                 icon={faTwitter}
               />
-            </a>
-            <a className="" href="/">
+            </Link>
+            <Link className="" href="/">
               <FontAwesomeIcon
                 className="fa-beat"
                 size="2x"
                 color="white"
                 icon={faLinkedin}
               />
-            </a>
+            </Link>
           </div>
           <p className=" text-lg">
             Lorem ipsum dolor sit amet. Cum vitae quod et nihil provident sit
@@ -32,7 +33,7 @@ export default function SectionAbout() {
             hic eius nesciunt vel galisum nihil qui porro quos a quia autem aut
             aspernatur voluptatem
           </p>
-          <a
+          <Link
             href="/"
             class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
           >
@@ -72,7 +73,7 @@ export default function SectionAbout() {
             <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
               Mon CV
             </span>
-          </a>
+          </Link>
         </div>
         <div>
           <img src="undraw_web_developer.svg" alt="" />

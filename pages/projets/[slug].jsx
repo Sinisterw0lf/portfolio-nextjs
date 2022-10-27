@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 }
 
 //3- récupére la data en fonction du slug
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
   // 1- récupere la data une fois que la promise success
   const res = await client.getEntries({
     content_type: "projets",
@@ -38,17 +38,28 @@ export async function getStaticProps({params}) {
   // 2- je stock la data dans variable projet
   const projet = res.items;
 
-
   return {
     // Passed to the page component as props
     props: { projet: projet[0] },
   };
 }
 
-export default function Show({projet}) {
-  const {title, description, roles, skills, urlDuProjet, images} = projet.fields
+export default function Show({ projet }) {
+  const {
+    title,
+    description,
+    roles,
+    skills,
+    urlDuProjet,
+    images,
+    featuredImage,
+  } = projet.fields;
   return (
-    <Layout>
+    <Layout
+      title={title}
+      metaContent={`Le projet ${title} est un projet fait avec Laravel et React`}
+      image={`http:${featuredImage.fields.file.url}`}
+    >
       <div className="px-20 pt-40">
         <div className="grid grid-cols-2 items-centers gap-6">
           <div className="pr-10">
@@ -77,14 +88,22 @@ export default function Show({projet}) {
               </ul>
             </div>
             <div className="p2 mt-6">
-              <a href=`{urlDuProjet}` target="blank" className=" bg-indigo-500 rounded-lg p-2 text-white">
+              <a
+                href="{urlDuProjet}"
+                target="blank"
+                className=" bg-indigo-500 rounded-lg p-2 text-white"
+              >
                 Voir le projet
               </a>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {images.map((image,index) => (
-              <img key={index} src={image.fields.file.url} alt="titre du projet"/>
+            {images.map((image, index) => (
+              <img
+                key={index}
+                src={image.fields.file.url}
+                alt={`Cyril B portfolio ${title}`}
+              />
             ))}
           </div>
         </div>

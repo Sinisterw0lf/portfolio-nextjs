@@ -10,15 +10,16 @@ import SectionCard from "../components/section/SectionCard";
 import SectionProject from "../components/section/SectionProject";
 import styles from "../styles/Home.module.css";
 
-export default function Home({projets}) {
+export default function Home({ projets }) {
   console.log(projets);
   return (
     <div className="">
-      <Layout>
+      <Layout title="Accueil" metaContent="Bienvenue dans mon portfolio. Je suis Cyril B. développeur web en React, Laravel">
+        
         <Hero />
         <SectionAbout />
         <SectionCard />
-        <SectionProject projets={projets}/>
+        <SectionProject projets={projets} />
       </Layout>
     </div>
   );
@@ -31,7 +32,11 @@ export async function getStaticProps() {
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   });
   // 2-récupere la data une fois que la promise success
-  const res = await client.getEntries({content_type: "projets"});
+  const res = await client.getEntries({
+    content_type: "projets",
+    limit: 8,
+    order: "sys.createdAt",
+  });
   // 3- On envoie la data dans le props de la page
   return {
     props: {
